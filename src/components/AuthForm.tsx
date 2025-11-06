@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Sprout, Mail, Lock, User } from 'lucide-react';
+import { Sprout, Mail, Lock, User, ArrowLeft } from 'lucide-react';
 
-export function AuthForm() {
+export function AuthForm({ onBack }: { onBack?: () => void }) {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,7 +38,16 @@ export function AuthForm() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center px-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 relative">
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="absolute top-6 left-6 text-gray-600 hover:text-gray-800 transition-colors flex items-center gap-2"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            <span className="text-sm">Back</span>
+          </button>
+        )}
         <div className="flex items-center justify-center mb-8">
           <Sprout className="w-12 h-12 text-green-600 mr-3" />
           <h1 className="text-3xl font-bold text-gray-800">FarmAI</h1>

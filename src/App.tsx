@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { AuthForm } from './components/AuthForm';
 import { Dashboard } from './components/Dashboard';
+import { LandingPage } from './components/LandingPage';
 
 function AppContent() {
   const { user, loading } = useAuth();
+  const [showAuth, setShowAuth] = useState(false);
 
   if (loading) {
     return (
@@ -16,7 +19,17 @@ function AppContent() {
     );
   }
 
-  return user ? <Dashboard /> : <AuthForm />;
+  // If user is logged in, show dashboard
+  if (user) {
+    return <Dashboard />;
+  }
+
+  // Show landing page first, then auth form when user clicks "Get Started"
+  if (!showAuth) {
+    return <LandingPage onGetStarted={() => setShowAuth(true)} />;
+  }
+
+  return <AuthForm onBack={() => setShowAuth(false)} />;
 }
 
 function App() {
