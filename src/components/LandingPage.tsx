@@ -13,7 +13,6 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Interactive3DBackground } from './Interactive3DBackground';
 
 // Animated Section Component
 function AnimatedSection({ 
@@ -97,9 +96,6 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-hidden">
-      {/* 3D Interactive Background */}
-      <Interactive3DBackground />
-
       {/* Navigation */}
       <nav className="relative z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-6 py-4">

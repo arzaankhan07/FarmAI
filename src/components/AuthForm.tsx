@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Sprout, Mail, Lock, User, ArrowLeft } from 'lucide-react';
-import { Interactive3DBackground } from './Interactive3DBackground';
 
 export function AuthForm({ onBack }: { onBack?: () => void }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -39,9 +38,6 @@ export function AuthForm({ onBack }: { onBack?: () => void }) {
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-4 relative overflow-hidden">
-      {/* 3D Interactive Background */}
-      <Interactive3DBackground />
-
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 relative border border-gray-200 animate-fade-in">
         {onBack && (
           <button

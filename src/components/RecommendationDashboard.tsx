@@ -188,98 +188,6 @@ export function RecommendationDashboard() {
         </div>
       </AnimatedSection>
 
-      {/* How It Works Section */}
-      <AnimatedSection delay={100}>
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-emerald-600">
-          <div className="flex items-center gap-3 mb-4">
-          <Info className="w-6 h-6 text-emerald-600" />
-          <h3 className="text-xl font-semibold text-gray-900">How Our AI Recommendations Work</h3>
-        </div>
-        
-        <div className="space-y-4">
-          <p className="text-gray-700 leading-relaxed">
-            Our AI-powered recommendation system uses advanced machine learning algorithms to analyze your soil data 
-            and provide personalized farming recommendations. Here's how it works:
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-4 mt-6">
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-5 border border-purple-100">
-              <div className="flex items-center gap-3 mb-3">
-                <Database className="w-8 h-8 text-purple-600" />
-                <h4 className="font-semibold text-gray-800">Data Analysis</h4>
-              </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Our system analyzes your soil parameters including Nitrogen (N), Phosphorus (P), Potassium (K), 
-                pH levels, temperature, humidity, and rainfall patterns to understand your soil's current condition.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-5 border border-blue-100">
-              <div className="flex items-center gap-3 mb-3">
-                <Brain className="w-8 h-8 text-blue-600" />
-                <h4 className="font-semibold text-gray-800">AI Processing</h4>
-              </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Advanced machine learning models trained on thousands of farming datasets compare your soil data 
-                against optimal growing conditions for different crops, fertilizers, and yield patterns.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-5 border border-green-100">
-              <div className="flex items-center gap-3 mb-3">
-                <BarChart3 className="w-8 h-8 text-emerald-600" />
-                <h4 className="font-semibold text-gray-900">Smart Recommendations</h4>
-              </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Based on the analysis, the system generates personalized recommendations for the best crops to grow, 
-                optimal fertilizer types and dosages, and accurate yield predictions with confidence intervals.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-6 bg-gray-50 rounded-lg p-5 border border-gray-200">
-            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-emerald-600" />
-              Key Factors Considered
-            </h4>
-            <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-700">
-              <div className="flex items-start gap-2">
-                <span className="text-emerald-600 mt-1">•</span>
-                <span><strong>Soil Nutrients:</strong> N, P, K levels and their ratios</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-emerald-600 mt-1">•</span>
-                <span><strong>pH Balance:</strong> Acidity/alkalinity affecting nutrient availability</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-emerald-600 mt-1">•</span>
-                <span><strong>Climate Data:</strong> Temperature, humidity, and rainfall patterns</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-emerald-600 mt-1">•</span>
-                <span><strong>Crop Compatibility:</strong> Historical success rates for your conditions</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-emerald-600 mt-1">•</span>
-                <span><strong>Fertilizer Efficiency:</strong> Optimal nutrient supplementation needs</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-emerald-600 mt-1">•</span>
-                <span><strong>Yield Potential:</strong> Expected harvest based on all factors</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-            <p className="text-sm text-blue-800">
-              <strong>Note:</strong> These recommendations are based on AI analysis and should be used as a guide. 
-              Always consult with local agricultural experts and consider regional farming practices for best results.
-            </p>
-          </div>
-          </div>
-        </div>
-      </AnimatedSection>
-
       {latestSoilData && (
         <AnimatedSection delay={200}>
           <div className="bg-white rounded-xl shadow-sm p-6">
@@ -473,6 +381,93 @@ export function RecommendationDashboard() {
         </div>
         </AnimatedSection>
       )}
+
+      {/* How It Works Section - Moved to Bottom */}
+      <AnimatedSection delay={600}>
+        <div className="bg-gradient-to-br from-gray-50 to-emerald-50 rounded-2xl shadow-lg p-8 border border-emerald-100 mt-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-600 rounded-full mb-4">
+              <Brain className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">How Our AI Recommendations Work</h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Understanding the science behind your personalized farming recommendations
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Database className="w-7 h-7 text-emerald-600" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">1. Data Collection</h4>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                We analyze your soil's N, P, K levels, pH, temperature, humidity, and rainfall to create a complete profile.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Brain className="w-7 h-7 text-blue-600" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">2. AI Analysis</h4>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Machine learning models compare your data against thousands of successful farming scenarios to find optimal matches.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <BarChart3 className="w-7 h-7 text-indigo-600" />
+              </div>
+              <h4 className="font-bold text-gray-900 mb-2">3. Recommendations</h4>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Get personalized crop suggestions, fertilizer plans, and yield forecasts tailored to your specific conditions.
+              </p>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-emerald-600" />
+              Key Factors Our AI Considers
+            </h4>
+            <div className="grid md:grid-cols-3 gap-3 text-sm">
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-emerald-600 font-bold">•</span>
+                <span>Soil nutrient ratios (N-P-K)</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-emerald-600 font-bold">•</span>
+                <span>pH level optimization</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-emerald-600 font-bold">•</span>
+                <span>Climate conditions</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-emerald-600 font-bold">•</span>
+                <span>Crop compatibility scores</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-emerald-600 font-bold">•</span>
+                <span>Fertilizer efficiency rates</span>
+              </div>
+              <div className="flex items-center gap-2 text-gray-700">
+                <span className="text-emerald-600 font-bold">•</span>
+                <span>Historical yield patterns</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
+            <p className="text-sm text-emerald-800 text-center">
+              <strong>Note:</strong> These recommendations are AI-generated and should be used as a guide. 
+              Always consult with local agricultural experts for best results.
+            </p>
+          </div>
+        </div>
+      </AnimatedSection>
     </div>
   );
 }

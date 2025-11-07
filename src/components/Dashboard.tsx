@@ -5,7 +5,6 @@ import { SoilDataForm } from './SoilDataForm';
 import { RecommendationDashboard } from './RecommendationDashboard';
 import { PredictionHistory } from './PredictionHistory';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { Interactive3DBackground } from './Interactive3DBackground';
 
 type Tab = 'home' | 'recommendations' | 'history';
 
@@ -54,9 +53,6 @@ export function Dashboard() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* 3D Interactive Background */}
-      <Interactive3DBackground />
-
       <nav className="relative z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
