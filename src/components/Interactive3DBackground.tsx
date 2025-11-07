@@ -94,34 +94,68 @@ export function Interactive3DBackground() {
         }}
       />
 
-      {/* 3D floating particles */}
-      {Array.from({ length: 20 }).map((_, i) => {
-        const size = Math.random() * 4 + 2;
+      {/* 3D floating particles with mouse interaction */}
+      {Array.from({ length: 25 }).map((_, i) => {
+        const size = Math.random() * 5 + 2;
         const initialX = Math.random() * 100;
         const initialY = Math.random() * 100;
         const duration = Math.random() * 20 + 15;
         const delay = Math.random() * 5;
+        const zDepth = Math.random() * 300 - 150;
+        const mouseInfluence = (mousePosition.x - 50) * 0.1 + (mousePosition.y - 50) * 0.1;
 
         return (
           <div
             key={i}
-            className="absolute rounded-full opacity-30"
+            className="absolute rounded-full opacity-40"
             style={{
               width: `${size}px`,
               height: `${size}px`,
-              background: `rgba(${Math.random() > 0.5 ? '16, 185, 129' : '59, 130, 246'}, ${0.4 + Math.random() * 0.3})`,
-              left: `${initialX}%`,
-              top: `${initialY}%`,
-              transform: `translate(-50%, -50%) translateZ(${Math.random() * 200 - 100}px)`,
+              background: `rgba(${Math.random() > 0.5 ? '16, 185, 129' : '59, 130, 246'}, ${0.5 + Math.random() * 0.3})`,
+              left: `${initialX + (mousePosition.x - 50) * 0.05}%`,
+              top: `${initialY + (mousePosition.y - 50) * 0.05}%`,
+              transform: `translate(-50%, -50%) translateZ(${zDepth + mouseInfluence}px) scale(${1 + (zDepth + mouseInfluence) / 200})`,
               transformStyle: 'preserve-3d',
               animation: `float${i} ${duration}s ease-in-out infinite`,
               animationDelay: `${delay}s`,
-              filter: 'blur(1px)',
-              boxShadow: `0 0 ${size * 2}px rgba(16, 185, 129, 0.5)`,
+              filter: 'blur(0.5px)',
+              boxShadow: `0 0 ${size * 3}px rgba(${Math.random() > 0.5 ? '16, 185, 129' : '59, 130, 246'}, 0.6)`,
+              transition: 'transform 0.1s ease-out',
             }}
           />
         );
       })}
+
+      {/* Animated 3D grid lines */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(16, 185, 129, 0.2) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(16, 185, 129, 0.2) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+          transform: `translateZ(-200px) rotateX(${(mousePosition.y - 50) * 0.15}deg) rotateY(${(mousePosition.x - 50) * 0.15}deg) rotateZ(${(mousePosition.x - 50) * 0.05}deg)`,
+          transformStyle: 'preserve-3d',
+          transition: 'transform 0.1s ease-out',
+          perspective: '1000px',
+        }}
+      />
+
+      {/* Secondary grid layer */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: '100px 100px',
+          transform: `translateZ(-150px) rotateX(${(mousePosition.y - 50) * -0.1}deg) rotateY(${(mousePosition.x - 50) * -0.1}deg)`,
+          transformStyle: 'preserve-3d',
+          transition: 'transform 0.1s ease-out',
+        }}
+      />
 
       {/* Animated grid lines */}
       <div
