@@ -157,21 +157,6 @@ export function Interactive3DBackground() {
         }}
       />
 
-      {/* Animated grid lines */}
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px',
-          transform: `translateZ(-100px) rotateX(${mousePosition.y * 0.1 - 5}deg) rotateY(${mousePosition.x * 0.1 - 5}deg)`,
-          transformStyle: 'preserve-3d',
-          transition: 'transform 0.3s ease-out',
-        }}
-      />
-
       {/* Add CSS animations */}
       <style>{`
         @keyframes float0 {
