@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Sprout, Mail, Lock, User, ArrowLeft } from 'lucide-react';
+import { Interactive3DBackground } from './Interactive3DBackground';
 
 export function AuthForm({ onBack }: { onBack?: () => void }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -38,11 +39,8 @@ export function AuthForm({ onBack }: { onBack?: () => void }) {
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-4 relative overflow-hidden">
-      {/* Subtle Background Pattern */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-blue-50 to-indigo-50 opacity-50" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-green-50 to-emerald-50 opacity-30" />
-      </div>
+      {/* 3D Interactive Background */}
+      <Interactive3DBackground />
 
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 relative border border-gray-200 animate-fade-in">
         {onBack && (

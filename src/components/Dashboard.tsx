@@ -5,6 +5,7 @@ import { SoilDataForm } from './SoilDataForm';
 import { RecommendationDashboard } from './RecommendationDashboard';
 import { PredictionHistory } from './PredictionHistory';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { Interactive3DBackground } from './Interactive3DBackground';
 
 type Tab = 'home' | 'recommendations' | 'history';
 
@@ -53,11 +54,8 @@ export function Dashboard() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Subtle Background Pattern */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-blue-50 to-indigo-50 opacity-30" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-green-50 to-emerald-50 opacity-20" />
-      </div>
+      {/* 3D Interactive Background */}
+      <Interactive3DBackground />
 
       <nav className="relative z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
