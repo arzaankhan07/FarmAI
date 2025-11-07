@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Home, FileText, History, LogOut, Sprout } from 'lucide-react';
+import { Home, FileText, History, LogOut, Sprout, Menu, X } from 'lucide-react';
 import { SoilDataForm } from './SoilDataForm';
 import { RecommendationDashboard } from './RecommendationDashboard';
 import { PredictionHistory } from './PredictionHistory';
@@ -45,6 +45,7 @@ function AnimatedSection({
 export function Dashboard() {
   const { signOut } = useAuth();
   const [activeTab, setActiveTab] = useState<Tab>('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleSignOut = async () => {
     await signOut();
@@ -62,31 +63,19 @@ export function Dashboard() {
       <nav className="relative z-50 bg-white/80 backdrop-blur-md border-b border-cyan-200/30 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Sprout className="w-8 h-8 text-emerald-500 mr-2" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500 bg-clip-text text-transparent">
-                FarmAI
-              </span>
-            </div>
-            <button
-              onClick={handleSignOut}
-              className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 rounded-lg transition-all duration-300 transform hover:scale-105"
-            >
-              <LogOut className="w-5 h-5" />
-              <span>Sign Out</span>
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex gap-6">
-          <AnimatedSection delay={0} direction="left">
-            <aside className="w-64 flex-shrink-0">
-              <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-lg p-4 space-y-2 border border-cyan-200/30">
+            <div className="flex items-center gap-8">
+              <div className="flex items-center">
+                <Sprout className="w-8 h-8 text-emerald-500 mr-2" />
+                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500 bg-clip-text text-transparent">
+                  FarmAI
+                </span>
+              </div>
+              
+              {/* Navigation Menu - Desktop */}
+              <div className="hidden md:flex items-center gap-2">
                 <button
                   onClick={() => setActiveTab('home')}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 transform ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 transform ${
                     activeTab === 'home'
                       ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50 scale-105'
                       : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 hover:scale-105'
@@ -97,7 +86,7 @@ export function Dashboard() {
                 </button>
                 <button
                   onClick={() => setActiveTab('recommendations')}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 transform ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 transform ${
                     activeTab === 'recommendations'
                       ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50 scale-105'
                       : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 hover:scale-105'
@@ -108,7 +97,7 @@ export function Dashboard() {
                 </button>
                 <button
                   onClick={() => setActiveTab('history')}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 transform ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 transform ${
                     activeTab === 'history'
                       ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50 scale-105'
                       : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 hover:scale-105'
@@ -118,17 +107,87 @@ export function Dashboard() {
                   <span>History</span>
                 </button>
               </div>
-            </aside>
-          </AnimatedSection>
-
-          <main className="flex-1">
-            <AnimatedSection delay={100} direction="right">
-              {activeTab === 'home' && <SoilDataForm onSuccess={() => setActiveTab('recommendations')} />}
-              {activeTab === 'recommendations' && <RecommendationDashboard />}
-              {activeTab === 'history' && <PredictionHistory />}
-            </AnimatedSection>
-          </main>
+            </div>
+            
+            <div className="flex items-center gap-2">
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden p-2 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 rounded-lg transition-all duration-300"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+              
+              <button
+                onClick={handleSignOut}
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 rounded-lg transition-all duration-300 transform hover:scale-105"
+              >
+                <LogOut className="w-5 h-5" />
+                <span className="hidden sm:inline">Sign Out</span>
+              </button>
+            </div>
+          </div>
+          
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-cyan-200/30 py-4 animate-fade-in">
+              <div className="flex flex-col gap-2">
+                <button
+                  onClick={() => {
+                    setActiveTab('home');
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                    activeTab === 'home'
+                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50'
+                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50'
+                  }`}
+                >
+                  <Home className="w-5 h-5" />
+                  <span>Home</span>
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab('recommendations');
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                    activeTab === 'recommendations'
+                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50'
+                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50'
+                  }`}
+                >
+                  <FileText className="w-5 h-5" />
+                  <span>Recommendations</span>
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveTab('history');
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                    activeTab === 'history'
+                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50'
+                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50'
+                  }`}
+                >
+                  <History className="w-5 h-5" />
+                  <span>History</span>
+                </button>
+              </div>
+            </div>
+          )}
         </div>
+      </nav>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <AnimatedSection delay={0} direction="up">
+          <main>
+            {activeTab === 'home' && <SoilDataForm onSuccess={() => setActiveTab('recommendations')} />}
+            {activeTab === 'recommendations' && <RecommendationDashboard />}
+            {activeTab === 'history' && <PredictionHistory />}
+          </main>
+        </AnimatedSection>
       </div>
     </div>
   );
