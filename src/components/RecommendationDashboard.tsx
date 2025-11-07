@@ -182,18 +182,18 @@ export function RecommendationDashboard() {
   return (
     <div className="space-y-6">
       <AnimatedSection delay={0}>
-        <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white">
+        <div className="bg-emerald-600 rounded-xl p-6 text-white shadow-md">
           <h2 className="text-2xl font-bold mb-2">AI-Powered Recommendations</h2>
-          <p className="text-green-50">Based on your latest soil and environmental data</p>
+          <p className="text-emerald-50">Based on your latest soil and environmental data</p>
         </div>
       </AnimatedSection>
 
       {/* How It Works Section */}
       <AnimatedSection delay={100}>
-        <div className="bg-white rounded-xl shadow-sm p-6 border-l-4 border-green-500">
+        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-emerald-600">
           <div className="flex items-center gap-3 mb-4">
-          <Info className="w-6 h-6 text-green-600" />
-          <h3 className="text-xl font-semibold text-gray-800">How Our AI Recommendations Work</h3>
+          <Info className="w-6 h-6 text-emerald-600" />
+          <h3 className="text-xl font-semibold text-gray-900">How Our AI Recommendations Work</h3>
         </div>
         
         <div className="space-y-4">
@@ -227,8 +227,8 @@ export function RecommendationDashboard() {
 
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-5 border border-green-100">
               <div className="flex items-center gap-3 mb-3">
-                <BarChart3 className="w-8 h-8 text-green-600" />
-                <h4 className="font-semibold text-gray-800">Smart Recommendations</h4>
+                <BarChart3 className="w-8 h-8 text-emerald-600" />
+                <h4 className="font-semibold text-gray-900">Smart Recommendations</h4>
               </div>
               <p className="text-sm text-gray-600 leading-relaxed">
                 Based on the analysis, the system generates personalized recommendations for the best crops to grow, 
@@ -238,33 +238,33 @@ export function RecommendationDashboard() {
           </div>
 
           <div className="mt-6 bg-gray-50 rounded-lg p-5 border border-gray-200">
-            <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-green-600" />
+            <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-emerald-600" />
               Key Factors Considered
             </h4>
             <div className="grid md:grid-cols-2 gap-3 text-sm text-gray-700">
               <div className="flex items-start gap-2">
-                <span className="text-green-600 mt-1">•</span>
+                <span className="text-emerald-600 mt-1">•</span>
                 <span><strong>Soil Nutrients:</strong> N, P, K levels and their ratios</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-green-600 mt-1">•</span>
+                <span className="text-emerald-600 mt-1">•</span>
                 <span><strong>pH Balance:</strong> Acidity/alkalinity affecting nutrient availability</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-green-600 mt-1">•</span>
+                <span className="text-emerald-600 mt-1">•</span>
                 <span><strong>Climate Data:</strong> Temperature, humidity, and rainfall patterns</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-green-600 mt-1">•</span>
+                <span className="text-emerald-600 mt-1">•</span>
                 <span><strong>Crop Compatibility:</strong> Historical success rates for your conditions</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-green-600 mt-1">•</span>
+                <span className="text-emerald-600 mt-1">•</span>
                 <span><strong>Fertilizer Efficiency:</strong> Optimal nutrient supplementation needs</span>
               </div>
               <div className="flex items-start gap-2">
-                <span className="text-green-600 mt-1">•</span>
+                <span className="text-emerald-600 mt-1">•</span>
                 <span><strong>Yield Potential:</strong> Expected harvest based on all factors</span>
               </div>
             </div>
@@ -307,28 +307,28 @@ export function RecommendationDashboard() {
       )}
 
       <AnimatedSection delay={300}>
-        <div className="bg-white rounded-xl shadow-sm p-6">
+        <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200">
         <div className="flex items-center gap-3 mb-4">
-          <Leaf className="w-6 h-6 text-green-600" />
-          <h3 className="text-xl font-semibold text-gray-800">Crop Recommendation</h3>
+          <Leaf className="w-6 h-6 text-emerald-600" />
+          <h3 className="text-xl font-semibold text-gray-900">Crop Recommendation</h3>
         </div>
 
-        <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6 mb-4">
+        <div className="bg-emerald-50 border-2 border-emerald-200 rounded-lg p-6 mb-4">
           <div className="flex items-center justify-between mb-3">
             <div>
-              <p className="text-sm text-green-700 mb-1">Recommended Crop</p>
-              <h4 className="text-3xl font-bold text-green-900">{cropPrediction.crop}</h4>
+              <p className="text-sm text-emerald-700 mb-1">Recommended Crop</p>
+              <h4 className="text-3xl font-bold text-emerald-900">{cropPrediction.crop}</h4>
             </div>
             <div className="text-right">
-              <p className="text-sm text-green-700 mb-1">Confidence</p>
-              <p className="text-2xl font-bold text-green-900">
+              <p className="text-sm text-emerald-700 mb-1">Confidence</p>
+              <p className="text-2xl font-bold text-emerald-900">
                 {(cropPrediction.confidence * 100).toFixed(0)}%
               </p>
             </div>
           </div>
-          <div className="w-full bg-green-200 rounded-full h-2">
+          <div className="w-full bg-emerald-200 rounded-full h-2">
             <div
-              className="bg-green-600 h-2 rounded-full transition-all"
+              className="bg-emerald-600 h-2 rounded-full transition-all"
               style={{ width: `${cropPrediction.confidence * 100}%` }}
             />
           </div>

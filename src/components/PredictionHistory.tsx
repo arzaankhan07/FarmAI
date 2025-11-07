@@ -144,20 +144,20 @@ export function PredictionHistory() {
   }
 
   return (
-    <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-lg border border-cyan-200/30">
+    <div className="bg-white rounded-xl shadow-md border border-gray-200">
       <AnimatedSection delay={0}>
-        <div className="p-6 border-b border-cyan-200/30">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent">
+        <div className="p-6 border-b border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900">
             Prediction History
           </h2>
           <p className="text-gray-600 mt-1">View your past recommendations and predictions</p>
         </div>
       </AnimatedSection>
 
-      <div className="divide-y divide-cyan-200/30">
+      <div className="divide-y divide-gray-200">
         {history.map((item, index) => (
           <AnimatedSection key={item.id} delay={index * 100}>
-            <div className="p-6 hover:bg-gradient-to-r hover:from-emerald-50/50 hover:to-cyan-50/50 transition-all duration-300">
+            <div className="p-6 hover:bg-emerald-50 transition-all duration-200">
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-2 text-gray-600">
                 <Calendar className="w-4 h-4" />
@@ -172,7 +172,7 @@ export function PredictionHistory() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-4">
-              <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200 rounded-lg p-4 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
+              <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 transition-all duration-200 shadow-sm hover:shadow-md">
                 <div className="flex items-center gap-2 mb-2">
                   <Leaf className="w-5 h-5 text-emerald-600" />
                   <p className="text-sm font-medium text-emerald-700">Crop</p>
@@ -180,32 +180,32 @@ export function PredictionHistory() {
                 <p className="text-lg font-bold text-emerald-900">{item.crop}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 border border-cyan-200 rounded-lg p-4 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 transition-all duration-200 shadow-sm hover:shadow-md">
                 <div className="flex items-center gap-2 mb-2">
-                  <Package className="w-5 h-5 text-cyan-600" />
-                  <p className="text-sm font-medium text-cyan-700">Fertilizer</p>
+                  <Package className="w-5 h-5 text-blue-600" />
+                  <p className="text-sm font-medium text-blue-700">Fertilizer</p>
                 </div>
-                <p className="text-sm font-semibold text-cyan-900">{item.fertilizer}</p>
+                <p className="text-sm font-semibold text-blue-900">{item.fertilizer}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-violet-50 to-violet-100 border border-violet-200 rounded-lg p-4 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
+              <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-4 transition-all duration-200 shadow-sm hover:shadow-md">
                 <div className="flex items-center gap-2 mb-2">
-                  <TrendingUp className="w-5 h-5 text-violet-600" />
-                  <p className="text-sm font-medium text-violet-700">Yield</p>
+                  <TrendingUp className="w-5 h-5 text-indigo-600" />
+                  <p className="text-sm font-medium text-indigo-700">Yield</p>
                 </div>
-                <p className="text-lg font-bold text-violet-900">
+                <p className="text-lg font-bold text-indigo-900">
                   {item.yield > 0 ? `${item.yield} t/ha` : 'N/A'}
                 </p>
               </div>
             </div>
 
             {item.soil_data && (
-              <div className="mt-4 pt-4 border-t border-cyan-200/30">
-                <p className="text-xs text-gray-500 mb-2 font-medium">Soil Conditions</p>
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <p className="text-xs text-gray-600 mb-2 font-medium">Soil Conditions</p>
                 <div className="flex gap-4 text-sm">
                   <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full font-semibold">N: {item.soil_data.nitrogen} kg/ha</span>
-                  <span className="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full font-semibold">P: {item.soil_data.phosphorus} kg/ha</span>
-                  <span className="px-3 py-1 bg-violet-100 text-violet-700 rounded-full font-semibold">K: {item.soil_data.potassium} kg/ha</span>
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full font-semibold">P: {item.soil_data.phosphorus} kg/ha</span>
+                  <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full font-semibold">K: {item.soil_data.potassium} kg/ha</span>
                 </div>
               </div>
             )}

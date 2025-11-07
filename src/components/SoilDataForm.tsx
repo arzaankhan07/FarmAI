@@ -193,10 +193,10 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
   };
 
   return (
-    <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-lg p-8 border border-cyan-200/30">
+    <div className="bg-white rounded-xl shadow-md p-8 border border-gray-200">
       <AnimatedSection delay={0}>
         <div className="mb-6">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent mb-2">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
             Soil & Weather Data
           </h2>
           <p className="text-gray-600">Enter your farm's soil and environmental conditions</p>
@@ -211,7 +211,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                 Nitrogen (N) - kg/ha
               </label>
               <div className="relative">
-                <Activity className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-emerald-500" />
+                <Activity className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-emerald-600" />
                 <input
                   type="number"
                   name="nitrogen"
@@ -219,7 +219,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                   onChange={handleChange}
                   step="0.01"
                   min="0"
-                  className="w-full pl-11 pr-4 py-3 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all duration-300"
+                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all duration-200 text-gray-900"
                   placeholder="0.00"
                   required
                 />
@@ -231,7 +231,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                 Phosphorus (P) - kg/ha
               </label>
               <div className="relative">
-                <Activity className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan-500" />
+                <Activity className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-emerald-600" />
                 <input
                   type="number"
                   name="phosphorus"
@@ -239,7 +239,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                   onChange={handleChange}
                   step="0.01"
                   min="0"
-                  className="w-full pl-11 pr-4 py-3 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all duration-300"
+                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all duration-200 text-gray-900"
                   placeholder="0.00"
                   required
                 />
@@ -251,7 +251,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                 Potassium (K) - kg/ha
               </label>
               <div className="relative">
-                <Activity className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-violet-500" />
+                <Activity className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-emerald-600" />
                 <input
                   type="number"
                   name="potassium"
@@ -259,7 +259,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                   onChange={handleChange}
                   step="0.01"
                   min="0"
-                  className="w-full pl-11 pr-4 py-3 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all duration-300"
+                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all duration-200 text-gray-900"
                   placeholder="0.00"
                   required
                 />
@@ -275,7 +275,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                 Soil pH Level
               </label>
               <div className="relative">
-                <Droplets className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan-500" />
+                <Droplets className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-emerald-600" />
                 <input
                   type="number"
                   name="ph_level"
@@ -284,7 +284,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                   step="0.1"
                   min="0"
                   max="14"
-                  className="w-full pl-11 pr-4 py-3 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all duration-300"
+                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all duration-200 text-gray-900"
                   placeholder="7.0"
                   required
                 />
@@ -304,14 +304,14 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                 )}
               </div>
               <div className="relative">
-                <Thermometer className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-orange-500" />
+                <Thermometer className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-emerald-600" />
                 <input
                   type="number"
                   name="temperature"
                   value={formData.temperature}
                   onChange={handleChange}
                   step="0.1"
-                  className="w-full pl-11 pr-4 py-3 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all duration-300"
+                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all duration-200 text-gray-900"
                   placeholder="25.0"
                   required
                 />
@@ -335,7 +335,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                 )}
               </div>
               <div className="relative">
-                <Droplets className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-500" />
+                <Droplets className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-emerald-600" />
                 <input
                   type="number"
                   name="humidity"
@@ -344,7 +344,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                   step="0.1"
                   min="0"
                   max="100"
-                  className="w-full pl-11 pr-4 py-3 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all duration-300"
+                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all duration-200 text-gray-900"
                   placeholder="60.0"
                   required
                 />
@@ -364,7 +364,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                 )}
               </div>
               <div className="relative">
-                <Cloud className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan-500" />
+                <Cloud className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-emerald-600" />
                 <input
                   type="number"
                   name="rainfall"
@@ -372,7 +372,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
                   onChange={handleChange}
                   step="0.1"
                   min="0"
-                  className="w-full pl-11 pr-4 py-3 border border-cyan-200 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none transition-all duration-300"
+                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all duration-200 text-gray-900"
                   placeholder="100.0"
                   required
                 />
@@ -443,7 +443,7 @@ export function SoilDataForm({ onSuccess }: SoilDataFormProps) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500 hover:from-emerald-600 hover:via-cyan-600 hover:to-violet-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Analyzing...' : 'Get AI Recommendations'}
           </button>

@@ -52,21 +52,20 @@ export function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-slate-50">
-      {/* Animated Background Elements */}
+    <div className="min-h-screen bg-white">
+      {/* Subtle Background Pattern */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-200/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl delay-2000" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-br from-blue-50 to-indigo-50 opacity-30" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-green-50 to-emerald-50 opacity-20" />
       </div>
 
-      <nav className="relative z-50 bg-white/80 backdrop-blur-md border-b border-cyan-200/30 shadow-lg">
+      <nav className="relative z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-8">
               <div className="flex items-center">
-                <Sprout className="w-8 h-8 text-emerald-500 mr-2" />
-                <span className="text-2xl font-bold bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500 bg-clip-text text-transparent">
+                <Sprout className="w-8 h-8 text-emerald-600 mr-2" />
+                <span className="text-2xl font-bold text-gray-900">
                   FarmAI
                 </span>
               </div>
@@ -75,10 +74,10 @@ export function Dashboard() {
               <div className="hidden md:flex items-center gap-2">
                 <button
                   onClick={() => setActiveTab('home')}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 transform ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
                     activeTab === 'home'
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50 scale-105'
-                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 hover:scale-105'
+                      ? 'bg-emerald-600 text-white font-medium shadow-md'
+                      : 'text-gray-700 hover:bg-emerald-50 hover:text-emerald-700'
                   }`}
                 >
                   <Home className="w-5 h-5" />
@@ -86,10 +85,10 @@ export function Dashboard() {
                 </button>
                 <button
                   onClick={() => setActiveTab('recommendations')}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 transform ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
                     activeTab === 'recommendations'
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50 scale-105'
-                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 hover:scale-105'
+                      ? 'bg-emerald-600 text-white font-medium shadow-md'
+                      : 'text-gray-700 hover:bg-emerald-50 hover:text-emerald-700'
                   }`}
                 >
                   <FileText className="w-5 h-5" />
@@ -97,10 +96,10 @@ export function Dashboard() {
                 </button>
                 <button
                   onClick={() => setActiveTab('history')}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-300 transform ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 ${
                     activeTab === 'history'
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50 scale-105'
-                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 hover:scale-105'
+                      ? 'bg-emerald-600 text-white font-medium shadow-md'
+                      : 'text-gray-700 hover:bg-emerald-50 hover:text-emerald-700'
                   }`}
                 >
                   <History className="w-5 h-5" />
@@ -113,14 +112,14 @@ export function Dashboard() {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 rounded-lg transition-all duration-300"
+                className="md:hidden p-2 text-gray-700 hover:bg-emerald-50 rounded-lg transition-all duration-200"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
               
               <button
                 onClick={handleSignOut}
-                className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50 rounded-lg transition-all duration-300 transform hover:scale-105"
+                className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg transition-all duration-200"
               >
                 <LogOut className="w-5 h-5" />
                 <span className="hidden sm:inline">Sign Out</span>
@@ -130,17 +129,17 @@ export function Dashboard() {
           
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-cyan-200/30 py-4 animate-fade-in">
+            <div className="md:hidden border-t border-gray-200 py-4 animate-fade-in">
               <div className="flex flex-col gap-2">
                 <button
                   onClick={() => {
                     setActiveTab('home');
                     setMobileMenuOpen(false);
                   }}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                     activeTab === 'home'
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50'
-                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50'
+                      ? 'bg-emerald-600 text-white font-medium shadow-md'
+                      : 'text-gray-700 hover:bg-emerald-50'
                   }`}
                 >
                   <Home className="w-5 h-5" />
@@ -151,10 +150,10 @@ export function Dashboard() {
                     setActiveTab('recommendations');
                     setMobileMenuOpen(false);
                   }}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                     activeTab === 'recommendations'
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50'
-                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50'
+                      ? 'bg-emerald-600 text-white font-medium shadow-md'
+                      : 'text-gray-700 hover:bg-emerald-50'
                   }`}
                 >
                   <FileText className="w-5 h-5" />
@@ -165,10 +164,10 @@ export function Dashboard() {
                     setActiveTab('history');
                     setMobileMenuOpen(false);
                   }}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                     activeTab === 'history'
-                      ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium shadow-lg shadow-emerald-500/50'
-                      : 'text-gray-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-cyan-50'
+                      ? 'bg-emerald-600 text-white font-medium shadow-md'
+                      : 'text-gray-700 hover:bg-emerald-50'
                   }`}
                 >
                   <History className="w-5 h-5" />
