@@ -2,6 +2,41 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
 import { Leaf, Package, TrendingUp, AlertCircle, CheckCircle, Loader, Info, Brain, Database, BarChart3 } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
+// Animated Section Component
+function AnimatedSection({ 
+  children, 
+  delay = 0,
+  direction = 'up'
+}: { 
+  children: React.ReactNode; 
+  delay?: number;
+  direction?: 'up' | 'down' | 'left' | 'right';
+}) {
+  const { ref, isVisible } = useScrollAnimation();
+
+  const directionClasses = {
+    up: 'translate-y-10',
+    down: '-translate-y-10',
+    left: 'translate-x-10',
+    right: '-translate-x-10',
+  };
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-1000 ease-out ${
+        isVisible
+          ? 'opacity-100 translate-y-0 translate-x-0'
+          : `opacity-0 ${directionClasses[direction]}`
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
 
 interface SoilData {
   id: string;
@@ -146,14 +181,17 @@ export function RecommendationDashboard() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white">
-        <h2 className="text-2xl font-bold mb-2">AI-Powered Recommendations</h2>
-        <p className="text-green-50">Based on your latest soil and environmental data</p>
-      </div>
+      <AnimatedSection delay={0}>
+        <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white">
+          <h2 className="text-2xl font-bold mb-2">AI-Powered Recommendations</h2>
+          <p className="text-green-50">Based on your latest soil and environmental data</p>
+        </div>
+      </AnimatedSection>
 
       {/* How It Works Section */}
-      <div className="bg-white rounded-xl shadow-sm p-6 border-l-4 border-green-500">
-        <div className="flex items-center gap-3 mb-4">
+      <AnimatedSection delay={100}>
+        <div className="bg-white rounded-xl shadow-sm p-6 border-l-4 border-green-500">
+          <div className="flex items-center gap-3 mb-4">
           <Info className="w-6 h-6 text-green-600" />
           <h3 className="text-xl font-semibold text-gray-800">How Our AI Recommendations Work</h3>
         </div>
@@ -238,11 +276,13 @@ export function RecommendationDashboard() {
               Always consult with local agricultural experts and consider regional farming practices for best results.
             </p>
           </div>
+          </div>
         </div>
-      </div>
+      </AnimatedSection>
 
       {latestSoilData && (
-        <div className="bg-white rounded-xl shadow-sm p-6">
+        <AnimatedSection delay={200}>
+          <div className="bg-white rounded-xl shadow-sm p-6">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">Current Conditions</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
@@ -263,9 +303,11 @@ export function RecommendationDashboard() {
             </div>
           </div>
         </div>
+        </AnimatedSection>
       )}
 
-      <div className="bg-white rounded-xl shadow-sm p-6">
+      <AnimatedSection delay={300}>
+        <div className="bg-white rounded-xl shadow-sm p-6">
         <div className="flex items-center gap-3 mb-4">
           <Leaf className="w-6 h-6 text-green-600" />
           <h3 className="text-xl font-semibold text-gray-800">Crop Recommendation</h3>
@@ -325,9 +367,11 @@ export function RecommendationDashboard() {
           </div>
         )}
       </div>
+      </AnimatedSection>
 
       {fertilizerRec && (
-        <div className="bg-white rounded-xl shadow-sm p-6">
+        <AnimatedSection delay={400}>
+          <div className="bg-white rounded-xl shadow-sm p-6">
           <div className="flex items-center gap-3 mb-4">
             <Package className="w-6 h-6 text-blue-600" />
             <h3 className="text-xl font-semibold text-gray-800">Fertilizer Recommendation</h3>
@@ -366,10 +410,12 @@ export function RecommendationDashboard() {
             </div>
           </div>
         </div>
+        </AnimatedSection>
       )}
 
       {yieldPrediction && (
-        <div className="bg-white rounded-xl shadow-sm p-6">
+        <AnimatedSection delay={500}>
+          <div className="bg-white rounded-xl shadow-sm p-6">
           <div className="flex items-center gap-3 mb-4">
             <TrendingUp className="w-6 h-6 text-orange-600" />
             <h3 className="text-xl font-semibold text-gray-800">Yield Prediction</h3>
@@ -425,6 +471,7 @@ export function RecommendationDashboard() {
             </p>
           </div>
         </div>
+        </AnimatedSection>
       )}
     </div>
   );

@@ -3,7 +3,6 @@ import {
   Sprout, 
   TrendingUp, 
   Droplets, 
-  Sun, 
   BarChart3, 
   Brain,
   ArrowRight,
@@ -97,12 +96,13 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white overflow-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl delay-2000" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/30 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-violet-500/30 rounded-full blur-3xl delay-2000" />
+        <div className="absolute top-3/4 left-1/3 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl delay-3000" />
       </div>
 
       {/* Navigation */}
@@ -110,16 +110,16 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="relative">
-              <Sprout className="w-10 h-10 text-green-400 animate-pulse" />
-              <Sparkles className="w-4 h-4 text-yellow-400 absolute -top-1 -right-1 animate-spin" />
+              <Sprout className="w-10 h-10 text-emerald-400 animate-pulse" />
+              <Sparkles className="w-4 h-4 text-cyan-400 absolute -top-1 -right-1 animate-spin" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
               FarmAI
             </span>
           </div>
           <button
             onClick={onGetStarted}
-            className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-green-500/50 flex items-center gap-2"
+            className="px-6 py-3 bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500 rounded-lg font-semibold hover:from-emerald-600 hover:via-cyan-600 hover:to-violet-600 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/50 flex items-center gap-2"
           >
             Get Started
             <ArrowRight className="w-5 h-5" />
@@ -131,8 +131,8 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
       <section className="relative z-10 container mx-auto px-6 py-20 mt-10">
         <div className="max-w-4xl mx-auto text-center">
           <AnimatedSection delay={0}>
-            <div className="inline-block mb-6 px-4 py-2 bg-green-500/20 backdrop-blur-sm rounded-full border border-green-500/30">
-              <span className="text-green-400 text-sm font-semibold flex items-center gap-2">
+            <div className="inline-block mb-6 px-4 py-2 bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-violet-500/20 backdrop-blur-sm rounded-full border border-cyan-400/30">
+              <span className="text-cyan-300 text-sm font-semibold flex items-center gap-2">
                 <Zap className="w-4 h-4" />
                 AI-Powered Precision Farming
               </span>
@@ -141,13 +141,13 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
           
           <AnimatedSection delay={100}>
             <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent animate-gradient">
+              <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent animate-gradient">
                 Revolutionize
               </span>
               <br />
               Your Farming
               <br />
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
                 with AI
               </span>
             </h1>
@@ -165,14 +165,14 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
                 onClick={onGetStarted}
-                className="px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl font-bold text-lg hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-110 shadow-2xl shadow-green-500/50 flex items-center gap-2 group"
+                className="px-8 py-4 bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500 rounded-xl font-bold text-lg hover:from-emerald-600 hover:via-cyan-600 hover:to-violet-600 transition-all duration-300 transform hover:scale-110 shadow-2xl shadow-cyan-500/50 flex items-center gap-2 group"
               >
                 Start Free Trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <button 
                 onClick={scrollToFeatures}
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center gap-2 group"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl font-bold text-lg border border-cyan-400/30 hover:bg-cyan-500/20 transition-all duration-300 flex items-center gap-2 group"
               >
                 Learn More
                 <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
@@ -184,16 +184,16 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
           <AnimatedSection delay={400}>
             <div className="grid grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-2">30%</div>
-                <div className="text-gray-400">Yield Increase</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-2">30%</div>
+                <div className="text-gray-300">Yield Increase</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-400 mb-2">10K+</div>
-                <div className="text-gray-400">Farmers</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent mb-2">10K+</div>
+                <div className="text-gray-300">Farmers</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">95%</div>
-                <div className="text-gray-400">Accuracy</div>
+                <div className="text-4xl font-bold bg-gradient-to-r from-violet-400 to-teal-400 bg-clip-text text-transparent mb-2">95%</div>
+                <div className="text-gray-300">Accuracy</div>
               </div>
             </div>
           </AnimatedSection>
@@ -206,9 +206,9 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Powerful Features for
-              <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent"> Modern Farmers</span>
+              <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent"> Modern Farmers</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Everything you need to optimize your farming operations
             </p>
           </div>
@@ -246,7 +246,7 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
         <AnimatedSection delay={0}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              How It <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Works</span>
+              How It <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-teal-400 bg-clip-text text-transparent">Works</span>
             </h2>
           </div>
         </AnimatedSection>
@@ -260,11 +260,11 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
             ].map((item, index) => (
               <AnimatedSection key={index} delay={index * 150}>
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-3xl font-bold mb-6 mx-auto shadow-lg shadow-green-500/50">
+                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 via-cyan-500 to-violet-500 rounded-full flex items-center justify-center text-3xl font-bold mb-6 mx-auto shadow-lg shadow-cyan-500/50">
                     {item.step}
                   </div>
                   <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-400">{item.desc}</p>
+                  <p className="text-gray-300">{item.desc}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -275,16 +275,16 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
       {/* Benefits Section */}
       <section className="relative z-10 container mx-auto px-6 py-20 mt-20">
         <AnimatedSection delay={0}>
-          <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-sm rounded-3xl p-12 border border-white/10">
+          <div className="max-w-4xl mx-auto bg-gradient-to-br from-cyan-500/10 via-violet-500/10 to-emerald-500/10 backdrop-blur-sm rounded-3xl p-12 border border-cyan-400/20">
             <h2 className="text-4xl font-bold mb-8 text-center">
-              Why Choose <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">FarmAI</span>?
+              Why Choose <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">FarmAI</span>?
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
                 <AnimatedSection key={index} delay={index * 50}>
                   <div className="flex items-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
-                    <span className="text-gray-300 text-lg">{benefit}</span>
+                    <CheckCircle className="w-6 h-6 text-cyan-400 flex-shrink-0 mt-1" />
+                    <span className="text-gray-200 text-lg">{benefit}</span>
                   </div>
                 </AnimatedSection>
               ))}
@@ -296,16 +296,16 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
       {/* CTA Section */}
       <section className="relative z-10 container mx-auto px-6 py-20 mt-20">
         <AnimatedSection delay={0}>
-          <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm rounded-3xl p-16 border border-green-500/30">
+          <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-violet-500/20 backdrop-blur-sm rounded-3xl p-16 border border-cyan-400/30">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ready to Transform Your Farming?
             </h2>
-            <p className="text-xl text-gray-300 mb-10">
+            <p className="text-xl text-gray-200 mb-10">
               Join thousands of farmers who are already using AI to maximize their yields
             </p>
             <button
               onClick={onGetStarted}
-              className="px-10 py-5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl font-bold text-xl hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-110 shadow-2xl shadow-green-500/50 flex items-center gap-3 mx-auto group"
+              className="px-10 py-5 bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500 rounded-xl font-bold text-xl hover:from-emerald-600 hover:via-cyan-600 hover:to-violet-600 transition-all duration-300 transform hover:scale-110 shadow-2xl shadow-cyan-500/50 flex items-center gap-3 mx-auto group"
             >
               Get Started Now
               <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
@@ -315,13 +315,13 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 container mx-auto px-6 py-12 mt-20 border-t border-white/10">
+      <footer className="relative z-10 container mx-auto px-6 py-12 mt-20 border-t border-cyan-400/20">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-3 mb-4 md:mb-0">
-            <Sprout className="w-8 h-8 text-green-400" />
-            <span className="text-xl font-bold">FarmAI</span>
+            <Sprout className="w-8 h-8 text-cyan-400" />
+            <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">FarmAI</span>
           </div>
-          <div className="flex items-center gap-6 text-gray-400">
+          <div className="flex items-center gap-6 text-gray-300">
             <Shield className="w-5 h-5" />
             <Globe className="w-5 h-5" />
             <span>© 2024 FarmAI. All rights reserved.</span>
