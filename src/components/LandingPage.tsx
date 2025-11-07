@@ -11,7 +11,8 @@ import {
   Zap,
   Shield,
   Globe,
-  Sparkles
+  Sparkles,
+  ChevronDown
 } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -51,6 +52,13 @@ function AnimatedSection({
 
 export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById('features-section');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const features = [
     {
@@ -162,8 +170,12 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
                 Start Free Trial
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
-                Watch Demo
+              <button 
+                onClick={scrollToFeatures}
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center gap-2 group"
+              >
+                Learn More
+                <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
               </button>
             </div>
           </AnimatedSection>
@@ -189,7 +201,7 @@ export function LandingPage({ onGetStarted }: { onGetStarted: () => void }) {
       </section>
 
       {/* Features Section */}
-      <section className="relative z-10 container mx-auto px-6 py-20 mt-20">
+      <section id="features-section" className="relative z-10 container mx-auto px-6 py-20 mt-20">
         <AnimatedSection delay={0}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
