@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
-import { Calendar, Leaf, Package, TrendingUp, MapPin } from 'lucide-react';
+import { Calendar, Leaf, Package, TrendingUp, MapPin, Trash2 } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Animated Section Component
@@ -56,6 +56,7 @@ export function PredictionHistory() {
   const { user } = useAuth();
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   useEffect(() => {
     loadHistory();
@@ -127,6 +128,31 @@ export function PredictionHistory() {
     });
   };
 
+  const handleDelete = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this prediction record?')) {
+      return;
+    }
+
+    setDeletingId(id);
+    try {
+      const { error } = await supabase
+        .from('crop_recommendations')
+        .delete()
+        .eq('id', id)
+        .eq('user_id', user?.id);
+
+      if (error) throw error;
+
+      // Remove from local state
+      setHistory(prev => prev.filter(item => item.id !== id));
+    } catch (error) {
+      console.error('Failed to delete record:', error);
+      alert('Failed to delete record. Please try again.');
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   if (loading) {
     return (
       <div className="bg-white/80 backdrop-blur-md rounded-xl shadow-lg p-8 border border-cyan-200/30">
@@ -157,18 +183,28 @@ export function PredictionHistory() {
       <div className="divide-y divide-gray-200">
         {history.map((item, index) => (
           <AnimatedSection key={item.id} delay={index * 100}>
-            <div className="p-6 hover:bg-emerald-50 transition-all duration-200">
+            <div className="p-6 hover:bg-emerald-50 transition-all duration-200 relative">
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-2 text-gray-600">
                 <Calendar className="w-4 h-4" />
                 <span className="text-sm">{formatDate(item.created_at)}</span>
               </div>
-              {item.soil_data?.location && (
-                <div className="flex items-center gap-1 text-gray-600">
-                  <MapPin className="w-4 h-4" />
-                  <span className="text-sm">{item.soil_data.location}</span>
-                </div>
-              )}
+              <div className="flex items-center gap-4">
+                {item.soil_data?.location && (
+                  <div className="flex items-center gap-1 text-gray-600">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm">{item.soil_data.location}</span>
+                  </div>
+                )}
+                <button
+                  onClick={() => handleDelete(item.id)}
+                  disabled={deletingId === item.id}
+                  className="p-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  title="Delete this record"
+                >
+                  <Trash2 className={`w-4 h-4 ${deletingId === item.id ? 'animate-spin' : ''}`} />
+                </button>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-4">
