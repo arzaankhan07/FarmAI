@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
-import { Leaf, Package, TrendingUp, AlertCircle, CheckCircle, Loader, Info, Brain, Database, BarChart3 } from 'lucide-react';
+import { Leaf, Package, TrendingUp, AlertCircle, CheckCircle, Loader, Brain, Database, BarChart3 } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 // Animated Section Component
