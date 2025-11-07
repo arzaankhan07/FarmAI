@@ -37,39 +37,48 @@ export function AuthForm({ onBack }: { onBack?: () => void }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center px-4">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 relative">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 flex items-center justify-center px-4 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl delay-2000" />
+      </div>
+
+      <div className="max-w-md w-full bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-8 relative border border-cyan-400/20 animate-fade-in">
         {onBack && (
           <button
             onClick={onBack}
-            className="absolute top-6 left-6 text-gray-600 hover:text-gray-800 transition-colors flex items-center gap-2"
+            className="absolute top-6 left-6 text-gray-300 hover:text-white transition-all duration-300 flex items-center gap-2 hover:scale-110"
           >
             <ArrowLeft className="w-5 h-5" />
             <span className="text-sm">Back</span>
           </button>
         )}
         <div className="flex items-center justify-center mb-8">
-          <Sprout className="w-12 h-12 text-green-600 mr-3" />
-          <h1 className="text-3xl font-bold text-gray-800">FarmAI</h1>
+          <Sprout className="w-12 h-12 text-emerald-400 mr-3 animate-pulse" />
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
+            FarmAI
+          </h1>
         </div>
 
-        <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">
+        <h2 className="text-2xl font-semibold text-white mb-6 text-center">
           {isLogin ? 'Welcome Back' : 'Create Account'}
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           {!isLogin && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+            <div className="animate-fade-in">
+              <label className="block text-sm font-medium text-gray-200 mb-2">
                 Full Name
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan-400" />
                 <input
                   type="text"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
+                  className="w-full pl-11 pr-4 py-3 bg-white/10 border border-cyan-400/30 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none text-white placeholder-gray-400 transition-all duration-300"
                   placeholder="Enter your full name"
                   required={!isLogin}
                 />
@@ -77,34 +86,34 @@ export function AuthForm({ onBack }: { onBack?: () => void }) {
             </div>
           )}
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <label className="block text-sm font-medium text-gray-200 mb-2">
               Email
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan-400" />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
+                className="w-full pl-11 pr-4 py-3 bg-white/10 border border-cyan-400/30 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none text-white placeholder-gray-400 transition-all duration-300"
                 placeholder="your@email.com"
                 required
               />
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+          <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
+            <label className="block text-sm font-medium text-gray-200 mb-2">
               Password
             </label>
             <div className="relative">
-              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-cyan-400" />
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none"
+                className="w-full pl-11 pr-4 py-3 bg-white/10 border border-cyan-400/30 rounded-lg focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 outline-none text-white placeholder-gray-400 transition-all duration-300"
                 placeholder="••••••••"
                 required
                 minLength={6}
@@ -113,7 +122,7 @@ export function AuthForm({ onBack }: { onBack?: () => void }) {
           </div>
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+            <div className="bg-red-500/20 border border-red-400/50 text-red-200 px-4 py-3 rounded-lg text-sm backdrop-blur-sm animate-shake">
               {error}
             </div>
           )}
@@ -121,7 +130,7 @@ export function AuthForm({ onBack }: { onBack?: () => void }) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500 hover:from-emerald-600 hover:via-cyan-600 hover:to-violet-600 text-white font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
           >
             {loading ? 'Please wait...' : isLogin ? 'Sign In' : 'Sign Up'}
           </button>
@@ -133,7 +142,7 @@ export function AuthForm({ onBack }: { onBack?: () => void }) {
               setIsLogin(!isLogin);
               setError('');
             }}
-            className="text-green-600 hover:text-green-700 font-medium"
+            className="text-cyan-300 hover:text-cyan-200 font-medium transition-colors duration-300"
           >
             {isLogin
               ? "Don't have an account? Sign Up"
